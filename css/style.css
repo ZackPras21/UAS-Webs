@@ -6,7 +6,7 @@
 
 body {
     background: linear-gradient(to right, #76489D, #3a6073);
-    font-family: "Raleway", sans-serif;
+    font-family: "Poppins", sans-serif;
     height: 100vh;
 }
 
@@ -46,7 +46,7 @@ body {
 }
 
 .popup.active {
-    top: 50%;
+    top: 60%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: top 0ms ease-in-out 0ms,
@@ -161,7 +161,7 @@ body {
 }
 
 .popup1.active {
-    top: 50%;
+    top: 65%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: top 0ms ease-in-out 0ms,

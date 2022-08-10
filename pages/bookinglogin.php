@@ -1,13 +1,13 @@
+<?php
+session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-<!--
-    NAMA  : Raehan Gadha R
-    NIM   : 10121250
-    KELAS : IF-7
-    created by : Raehan
-    logs: - v1.0 Raehan - Making Booking Page
-    -->
 
 <head>
   <meta charset="UTF-8" />
@@ -45,11 +45,11 @@
   </label>
   <div class="sidebar">
       <header>Menu</header>
-      <a href="../index.php" class="active">
+      <a href="../welcome.php" class="active">
           <img src="../images/clarity_home-solid.png">
           <span>Dashboard</span>
       </a>
-      <a href="pages/booking.html">
+      <a href="pages/bookinglogin.php">
           <img src="../images/clarity_list-line.png">
           <span>My Booking</span>
       </a>
@@ -61,19 +61,19 @@
           <img src="../images/ant-design_phone-outlined.png">
           <span>Contact Us</span>
       </a>
-      <a href="pages/booking.html">
+      <a href="pages/bookinglogin.php">
           <img src="../images/clarity_plane-solid.png">
           <span>Flights</span>
       </a>
-      <a href="pages/booking.html#hotel">
+      <a href="pages/bookinglogin.php#hotel">
           <img src="../images/fa6-solid_hotel.png">
           <span>Hotels</span>
       </a>
-      <a href="pages/booking.html#eat">
+      <a href="pages/bookinglogin.php#eat">
           <img src="../images/icon-park-solid_fork-spoon.png">
           <span>Eats</span>
       </a>
-      <a href="pages/booking.html#train">
+      <a href="pages/bookinglogin.php#train">
           <img src="../images/bxs_train.png">
           <span>Trains</span>
       </a>
@@ -82,30 +82,27 @@
 
   <!-- Nav Bar -->
   <div class="nav-bar">
-      <div class="wrapper">
-          <nav>
-              <div class="logo">
-                  <img src="../images/logo.png" height="70" width="230">
-              </div>
-              <ul class="nav-item">
-                  <li>
-                      <img src="../images/clarity_list-line.png">
-                  </li>
-                  <li>
-                      <a href="pages/booking.html">My Booking</a>
-                  </li>
-                  <li>
-                      <img src="../images/Vector.png">
-                  </li>
-                  <li>
-                      <a href="login.php">Log In</a>
-                  </li>
-                  <li>
-                      <a href="register.php"><input type="submit" value="Register"></a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
+    <div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="../images/logo.png" height="70" width="230">
+            </div>
+            <ul class="nav-item">
+                <li>
+                    <img src="../images/clarity_list-line.png">
+                </li>
+                <li>
+                    <a href="pages/bookinglogin.html">My Booking</a>
+                </li>
+                <li>
+                    <img src="../images/Vector.png">
+                </li>
+                <li>
+                <?php echo "<a>Welcome!, " . $_SESSION['username'] . "</a>"; ?>
+                </li>
+            </ul>
+        </nav>
+    </div>
   </div>
   <!-- Nav Bar -->
 
@@ -118,12 +115,12 @@
                       <li><a href="#">Transports<img src="../images/bxs_down-arrow.png" height="15"></a>
                           <ul class="dropdown">
                               <li>
-                                  <a href="pages/booking.html">
+                                  <a href="pages/bookinglogin.php">
                                       <img src="../images/clarity_plane-solid.png" height="25px">
                                       <span>Flights</span>
                                   </a>
                               </li>
-                              <li><a href="pages/booking.html">
+                              <li><a href="pages/bookinglogin.php">
                                       <img src="../images/bxs_train.png" height="25px">
                                       <span>Trains</span>
                                   </a>
@@ -134,7 +131,7 @@
                           <ul class="dropdown">
                               <li>
                                   </a>
-                                  <a href="pages/booking.html">
+                                  <a href="pages/bookinglogin.php">
                                       <img src="../images/fa6-solid_hotel.png" height="25px">
                                       <span>Hotels</span>
                                   </a>
@@ -180,16 +177,60 @@
       </thead>
       <tbody>
         <tr>
-        
+          <td>01</td>
+          <td>Bandung</td>
+          <td>Jakarta</td>
+          <td>2</td>
+          <td>2022-08-24</td>
+          <td>VIP Class</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
-       
+          <td>02</td>
+          <td>Jakarta</td>
+          <td>Bali</td>
+          <td>5</td>
+          <td>2022-08-19</td>
+          <td>Business Class</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
-
+          <td>03</td>
+          <td>Jakarta</td>
+          <td>Bali</td>
+          <td>2</td>
+          <td>2022-08-18</td>
+          <td>VIP Class</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
- 
+          <td>03</td>
+          <td>Jakarta</td>
+          <td>Medan</td>
+          <td>2</td>
+          <td>2022-08-11</td>
+          <td>Economic Class</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -219,13 +260,46 @@
       </thead>
       <tbody>
         <tr>
-
+          <td>01</td>
+          <td>Ayana</td>
+          <td>Bandung</td>
+          <td>Rifki</td>
+          <td>2022-08-18</td>
+          <td>3 Hari</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
-
+          <td>02</td>
+          <td>Ayana</td>
+          <td>Bali</td>
+          <td>Tirta</td>
+          <td>2022-08-31 	</td>
+          <td>7 Hari</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
-
+          <td>03</td>
+          <td>Melati</td>
+          <td>Bandung</td>
+          <td>Agus</td>
+          <td>2022-08-31</td>
+          <td>2 Hari</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -252,7 +326,15 @@
       </thead>
       <tbody>
         <tr>
-
+          <td>01</td>
+          <td>Indomie</td>
+          <td>Jakarta</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>              
         </tbody>
       </table>
@@ -281,10 +363,30 @@
       </thead>
       <tbody>
         <tr>
-
+          <td>01</td>
+          <td>Bandung</td>
+          <td>Pangandaran</td>
+          <td>2022-08-18</td>
+          <td>2</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>
         <tr>
-
+          <td>02</td>
+          <td>Cimahi</td>
+          <td>Jakarta</td>
+          <td>2022-08-08</td>
+          <td>5</td>
+          <td>
+            <span class="action_btn">
+              <a href="#">Edit</a>
+              <a href="#">Remove</a>
+            </span>
+          </td>
         </tr>       
         </tbody>
       </table>
